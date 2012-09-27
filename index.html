@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Emailbox by emailbox</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Emailbox</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/emailbox/emailbox">View the Project on GitHub <small>emailbox/emailbox</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/emailbox/emailbox/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/emailbox/emailbox/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/emailbox/emailbox">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>emailbox</h1>
+
+<p>Today I am releasing the source code and planning roadmap for emailbox. The goal of emailbox is to be the most developer friendly and versatile email and communication platform. By open sourcing emailbox at this early stage, I hope that other developers will realize the potential inherent in the idea and get excited to contribute with code, designs, criticisms, or suggestions.  </p>
+
+<p>I have released this code, but am maintaining the copyright. I am trying to strike a balance between maintaining some control over the direction of development, while also making it free to personally host and run. </p>
+
+<p>Do you have any comments, concerns, suggestions, or questions about this project? I welcome any input you may have; please email me or contribute to the discussion on GitHub!  </p>
+
+<p>- <a href="mailto:nick@getemailbox.com">nick@getemailbox.com</a></p>
+
+<h2>What is emailbox?</h2>
+
+<p>emailbox is a developer friendly inbox. In simple terms, <strong>emailbox is a self-hosted email platform that makes it easy to build and install apps</strong> that run seemlessly in browsers, and on your mobile devices. Apps can affect any part of emailbox. For example, you could write an app that runs when a new email comes in and resizes all the images. Or, you could simply modify the CSS theme for the UI and mobile clients. </p>
+
+<h3>Why build it?</h3>
+
+<p>Progress in email clients has stalled. Everyone uses email differently, yet clients from Gmail to Outlook to Sparrow heavily restrict what developers can do, and don't offer many tools for development. Instead, it should be easier for a developer to build apps that affect every scale of the email chain, and allow end users to determine how their client looks, what applications they want, and how efficiently they want to communicate. Rapportive, Boomerang, and Streak are example of awesome products/companies built on top of an email client, but I believe many more products and companies would exist if we had a more supportive development environment and distribution network. </p>
+
+<h3>Doesn't the Chrome Web Store already have apps?</h3>
+
+<p>No, not like the apps that emailbox will encourage. You can download an extension from the Chrome Web Store and install it in Chrome, but that Extension probably won't be able to act upon incoming emails as soon as they arrive, it won't work in multiple browsers, and it definitely won't work on your phone! </p>
+
+<h1>Features and Architecture</h1>
+
+<h3>Under development or planned</h3>
+
+<ol>
+<li><p>Straightforward API that handles the complexities of storing, queuing, searching, notifications, events, and permissions</p></li>
+<li><p>UI that works seemlessly with any device (desktop, tablet, phone)</p></li>
+<li><p>Developer friendly microformat-esque creation ("packages") for communications across any email client, but with significant benefits for emailbox users</p></li>
+<li><p>Easy installation of apps from a package manager similar to npm, yum, et al. </p></li>
+</ol><h3>API</h3>
+
+<p>Currently this includes endpoints for writing, updating, searching, queuing (soon), and triggering events. API calls all follow the same structure and include authentication for the calling application and user. </p>
+
+<h3>User Interface</h3>
+
+<p>Emails are viewed on many different devices, and emailbox should handle desktop, tablets, and phones out of the box. Native apps for Android and iOS devices are created using the same codebase as the web version, but with additional native-only features such as Push Notifications or gestures available by using Trigger.io. </p>
+
+<h3>Storage</h3>
+
+<p>All text data is stored in a Mongo database. S3 stores all received/sent attachments. </p>
+
+<h3>Email Server Architecture</h3>
+
+<p>Email accounts are currently limited to Gmail only. The original emails are kept on Gmail's servers and only accessed once by emailbox, either through the one-time retrieval process, or with the always-on IMAP script. Each email is parsed, attachments are uploaded to S3, and the parsed data is sent to the API along with an Email.new event. In the future, emails will also be parsed for their "package" data and that will be sent through the API as well. </p>
+
+<p>Sent emails are triggered by the "EmailDraft.send" event from the client and are passed all the email details (to, from, body, etc.). Attachments are uploaded using filepicker.io and available to the server as a URL. Sending uses Gmail's SMTP servers. </p>
+
+<h3>Packages</h3>
+
+<p>status: planning<br>
+emailbox uses the standard email protocol, but will include a way of reading a JSON mime type out of the email. This JSON encoded string defines an app that can trigger events on the receiving client, both on the web and mobile. For example, emailbox users with the Todo application can add events to a friend's Todo list, and mark them off when they have been completed, all within the email client. Users without emailbox or the todo application would instead receive a Text or HTML version of the request that includes a link to click when the Todo item is done.  </p>
+
+<p>A package is very similar to a microformat, except with a focus on communication and the transmission of information, instead of display.  </p>
+
+<h1>Challenges of emailbox</h1>
+
+<h2>App Architecture</h2>
+
+<p>The app (interchangably called plugins) architecture needs to be:</p>
+
+<ul>
+<li><p>Easy for developers to build apps that run against server events, or affect the UI</p></li>
+<li><p>Can communicate with disparate emailbox API instances</p></li>
+<li><p>Easy to install for consumers, without them worrying about conflicting apps that may break UI elements</p></li>
+<li><p>Easily packagable and distributable</p></li>
+<li><p>Less prone to piracy to encourage revenue-producing development</p></li>
+<li><p>Work offline seemlessly, or degrade gracefully</p></li>
+</ul><p>I'm not yet sure of the best way to do this, but I am currently using a pubsub-like approach for server events. Server apps are simply URL endpoints that are triggered when an event such as Email.new is fired. URLs are triggered in parallel. The json also includes a list of Model/Collection permissions that the app can access. This is to limit exposure in the case of a dishonest or rogue app. 
+Apps can also run JavaScript on the UI web client, the mobile web edition, or the native app (uses Trigger.io). This JavaScript is included in the app's package, and apps are not allowed to dynamically load JavaScript into the page. Some exceptions may be made for apps such as Google maps.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/emailbox">emailbox</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
