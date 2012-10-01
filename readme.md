@@ -78,3 +78,4 @@ The app (interchangably called plugins) architecture needs to be:
 I'm not yet sure of the best way to do this, but I am currently using a pubsub-like approach for server events. Server apps are simply URL endpoints that are triggered when an event such as Email.new is fired. URLs are triggered in parallel. The json also includes a list of Model/Collection permissions that the app can access. This is to limit exposure in the case of a dishonest or rogue app. Apps can also run JavaScript on the UI web client, the mobile web edition, or the native app (uses Trigger.io). This JavaScript is included in the app's package, and apps are not allowed to dynamically load JavaScript into the page. Some exceptions may be made for apps such as Google maps.
 
 
+emailbox copyright 2012 Nicholas Reed
