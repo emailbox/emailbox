@@ -2,7 +2,7 @@
 
 > emailbox is a set of building blocks for developers to create a simple and extendable email client. 
 
-The goal of emailbox is to be the most developer friendly and versatile email and communication platform. By open sourcing emailbox at this early stage, I hope that other developers will realize the potential inherent in the idea and get excited to contribute with code, designs, criticisms, or suggestions. 
+The goal of emailbox is to be the most developer friendly and versatile email and communication platform. By showing emailbox at this early stage, I hope that other developers will realize the potential inherent in the idea and get excited to contribute with code, designs, criticisms, or suggestions. 
 
 Questions and suggestions are welcome at [nick@getemailbox.com]() 
 
