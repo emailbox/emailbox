@@ -4,7 +4,7 @@
 
 The goal of emailbox is to be the most developer friendly and versatile email and communication platform. By showing emailbox at this early stage, I hope that other developers will realize the potential inherent in the idea and get excited to contribute with code, designs, criticisms, or suggestions. 
 
-Questions and suggestions are welcome at [nick@getemailbox.com]() 
+Contact nick at [nick@getemailbox.com]() 
 
 #### What is emailbox?
 
