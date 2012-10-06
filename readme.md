@@ -42,7 +42,7 @@ Emails are viewed on many different devices, and emailbox should handle desktop,
 
 #### Storage
 
-All text data is stored in a Mongo database. S3 stores all received/sent attachments.
+All text data is stored in a Mongo database. S3 stores all received/sent attachments. MySQL holds user information and some credentials.   
 
 #### Email Server Architecture
 
