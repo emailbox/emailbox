@@ -1,4 +1,3 @@
-
 # API Guide  
 This a guide to the API endpoints exposed by emailbox. [Learn more about emailbox](readme.md).  
 
@@ -145,7 +144,7 @@ Response:
 	}
   
 
-## api/queue  
+### api/queue  
 At the appointed utctime, we'll send an HTTP POST request to your specified Plugin URL with the included obj.  
 
 Request:  
