@@ -171,7 +171,36 @@ Response:
 The `data` field will include a `delay` object that confirms the number of seconds until the Job will be fired. 
 
 
+## Events  
 
+### API Server
+
+API events are triggered by `api/write` or `api/event`. When an Event is triggered, each App that requested to be notified on that event will be sent the following payload:
+
+	
+	{
+	    "auth": {
+                "user_token" : ...
+            },
+	    "obj": {
+	        "Email": {
+                    ...
+                }
+	    }
+	}
+
+### UI  
+
+In addition, a new object will be pushed through the socket.io connection:
+
+	{
+	    "event": 200,
+	    "data": {
+	        "Email": {
+                    ...
+                }
+	    }
+	}
 
 
 
