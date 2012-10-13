@@ -4,7 +4,7 @@ This a guide to the API endpoints exposed by emailbox. [Learn more about emailbo
 ## Links  
 > Links are relative to your API url 
 
-Console: https://your_url/api/console  
+Console: https://your_url/console.html  
 Samples: https://gist.github.com/6074f1d65a47b00dfd64  
 
 ## Authentication  
