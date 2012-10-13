@@ -1,14 +1,6 @@
 # emailbox
 
-> emailbox is a set of building blocks for developers to create a simple and extendable email client. 
-
-The goal of emailbox is to be the most developer friendly and versatile email and communication platform. By showing emailbox at this early stage, I hope that other developers will realize the potential inherent in the idea and get excited to contribute with code, designs, criticisms, or suggestions. 
-
-Contact nick at [nick@getemailbox.com]() 
-
-#### What is emailbox?
-
-**emailbox is a self-hosted email platform that makes it easy to build and install apps** that run seemlessly in browsers, and on your mobile devices. Apps can affect any part of emailbox. For example, you could write an app that runs when a new email comes in and resizes all the images. Or, you could simply modify the CSS theme for the UI and mobile clients.
+**emailbox is an email platform that makes it easy to build and install apps** that run seemlessly in browsers, and on your mobile devices. Apps can affect any part of emailbox. For example, you could write an app that runs when a new email comes in and resizes all the images. Or, you could simply modify the CSS theme for the UI and mobile clients.
 
 #### Why build emailbox?  
 
