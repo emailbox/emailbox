@@ -2,6 +2,8 @@
 # The one-line installer for emailbox
 # adapted from amon install script
 
+# curl https://raw.github.com/emailbox/emailbox/master/install.sh | bash
+
 set -e
 file_exists() {
 	[ -f "$1" ]
