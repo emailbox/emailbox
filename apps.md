@@ -52,4 +52,4 @@ Zip up your App (manifest.json at the root) and put it on the web somewhere.
 > Tip: GitHub automatically provides a zipped version of your app, if the repo is publically visible. Apps hosted on GitHub can also be added to our Catalog of Apps  
 
 ### Catalog  
-I'm hosting a catalog of apps at https://github.com/emailbox/emailbox/blob/master/catalog.json . Do a Pull Request to be added. 
+A catalog of hosted apps is at https://github.com/emailbox/emailbox/blob/master/catalog.json . Do a Pull Request to be added. 
