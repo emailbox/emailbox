@@ -1,70 +1,90 @@
 ## Apps  
-
-Apps are triggered on Events (ex: `Email.new` => `your_url`), and assets (css/js) are loaded into the UI. 
-
-### Building an App  
-An App is defined by a manifest.json that describes the assets for the UI, and the url to call on an Event. 
-
-#### Folder structure
-    
-    /js
-    /css
-    /img
-    manifest.json
-    
+ 
+An App is defined by a manifest.json. It describes your App and what permissions and data it will need
 
 #### manifest.json example  
     
     {
-      "name": "", // Theme: Blue
-    	"id" : "",  // com.native.theme.blue
-      "version" : "", // ex: 0.0.1
-    	"description": "",
-      "provision_url" : "", // optional. urls must be http or https
-      "deprovision_url" : "", // optional
-    	"events": {
-        "Test1.test" : "" // optional. 
-      },
-    	"scripts": {
-    		"img" : [
-          "test.png"
-    			],
-    		"js" : [
-    			"test.js"
-    			],
-    		"css": [
-    			"test.css"
-    			]
-    	}
+        "name": "Example",
+        "package": "pkg.hello.",
+        "description": "Email receiving, parsing, and sending",
+        "provision_url": "https://example.com/provision_new",
+        "plain_permissions": "UI only needs access to emails marked as \"marketing\" by Emailbox",
+        "permissions": {
+            "read": {
+                "Email": {
+                    "conditions": {"attributes.classified" : "marketing"},
+                    "paths": []
+                }
+            },
+            "write": {
+                "Email": {
+                    "conditions": {"attributes.classified" : "marketing"},
+                    "paths": []
+                }
+            },
+            "storage": true,
+            "events": {
+                "emit": ["Email.*", "Thread.*", "Classifier.*"],
+                "listen": {
+                    "Email.sync": {
+                        "url": "https://getemailbox.com/plugins/email_sync",
+                        "follow": [],
+                        "conditions": {}
+                    },
+                    "Email.send": {
+                        "url": "https://getemailbox.com/plugins/email_send",
+                        "follow": [],
+                        "conditions": {}
+                    }
+                }
+            }
+        },
+        "dependencies": []
     }
 
+### Let's look at each entry individually
 
-### Installing an App  
-> You will need the URL to a .zip version of your App  
+#### name  
+The name of your Application  
+**Requirements:** Must be at least 2 characters
 
-From the UI, choose the `Developer` menu, and click `Apps`. Change to the Install tab and paste the URL to the .zip version of your App. 
+#### package  
+A unique identifier for your App. This is used by "dependencies" and "follow" (later)  
+**Requirements:** Must start with "pkg."  
+** Example:** pkg.developer_name.example1
 
-### Developing locally  
-To develop locally, first download the App to your UI directory so the structure looks like `/src/apps/com.app.here/manifest.json`. Then load the `Apps` page from the UI (under the `Developer` menu) and choose the "dev" option for your App. This causes the `manifest.json` to be read locally for all assets, ignoring the server or cached versions. 
+#### description  
+**Requirements:** Must be at least 2 characters 
 
-### Publishing your App  
-Zip up your App (manifest.json at the root) and put it on the web somewhere. 
-> Tip: GitHub automatically provides a zipped version of your app, if the repo is publically visible. Apps hosted on GitHub can also be added to our Catalog of Apps  
+#### provision_url  
+The URL we will call when a new user authenticates your App. This occurs in case the person install your App from within our store.  
+**Requirements:** A valid, public URL  
 
-### Catalog  
-A catalog of hosted apps is at https://github.com/emailbox/emailbox/blob/master/catalog.json . Submit a Pull Request to be added. 
+#### plain_permissions  
+In plain english (translation later) describe the permissions your App requires. This will be reviewed and must match your requirest permissions.  
+**Requirements:** Must be at least 2 characters 
+
+#### permissions.read
+Define the Models, as well as paths and conditions, that your App will need to access for the user. 
+
+#### permissions.write
+Define the Models, as well as paths and conditions, that your App can modify for this user. 
+
+#### permissions.storage
+Allowed to store larger data for this user
+**Requirements:** `true` or `false`
+
+#### permissions.events  
+Your App can listen/emit events to communicate with other Apps.  
+
+#### permissions.events.emit  
+An array of events that your App can emit. Use a `*` for a wildcard
+
+#### permissions.events.listen  
+Must include a **url**, an array of **follow** that includes the package name of the App to wait for a response before your App's url is run (`["pkg.native.email"]`), and **conditions** to match before calling the url. 
 
 
-## Payload Apps  
-Payload Apps send out additional information with an email, encoded as a special mime-type. Similar to microformats, except not standardized (yet). The recipient has 3 possible client scenarios:  
-
-1. Using emailbox, App installed:
-    1. App is triggered with the data supplied in the special mime-type
-1. Using emailbox, App not installed:  
-    1. When viewing email, User is directed to install the App  
-    1. Email is an HTML or Text version of the data. For example, an Invitation App would include the event details in Text, and also in the special-mimetype. 
-1. Not using emailbox:  
-    1. See 2.2 
 
 
 
