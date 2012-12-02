@@ -15,7 +15,8 @@ The manifest is how you tell emailbox which Events you care about, what permissi
 [Learn more about the manifest](https://github.com/emailbox/emailbox/blob/master/apps.md)
 
 ### Download a sample App  
-https://github.com/emailbox/photos_app  
+Demo: https://github.com/emailbox/photos_app Source: https://github.com/emailbox/photos_app  
+Demo: https://github.com/emailbox/insights Source: https://github.com/emailbox/insights
 
 ### Update App credentials  
 Each App will have a credentials file (sometimes called creds.json, or credentials.json) that you need to edit. You will put your App's key (found on your App's edit page) in the credentials, replacing the existing value. 
