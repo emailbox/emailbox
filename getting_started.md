@@ -7,10 +7,12 @@ https://getemailbox.com/login
 
 ### Create your first App  
 https://getemailbox.com/developers  
+![developers](http://dl.dropbox.com/u/6673634/Screenshots/oyg0.png)
 You will choose a name for your application, and a default manifest will be created for you. 
 
 #### What is the manifest?  
 The manifest is how you tell emailbox which Events you care about, what permissions you need, and where you'll eventually set pricing. 
+[Learn more about the manifest](https://github.com/emailbox/emailbox/blob/master/apps.md)
 
 ### Download a sample App  
 https://github.com/emailbox/photos_app  
