@@ -19,7 +19,8 @@ https://github.com/emailbox/photos_app
 Each App will have a credentials file (sometimes called creds.json, or credentials.json) that you need to edit. You will put your App's key (found on your App's edit page) in the credentials, replacing the existing value. 
 
 ### Launch your App  
-If you are running a web application sample, you 
+I recommend tossing the app in your ~/Sites directory (on a mac) and browsing to http://localhost/~username/
+You can also fork the repo, then add (or push to) the gh-pages branch on GitHub and viewing it at http://username.github.com/app_name  
 
 ### Learn More  
 Read our API documentation, or see what other tools we offer ([DevTools](http://emailbox.github.com/dev_tools)). 
