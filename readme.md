@@ -1,23 +1,17 @@
-# emailbox
+# emailbox  
 
-## The Email Gold Rush is coming, get your shovels at getemailbox.com  
-
-Emailbox makes it easy for developers to build applications on top of email data. We handle all the hard parts of dealing with email (parsing, segmenting, searching, permissions) and provide a safe way for consumers to give out filtered email data. 
-
-#### Why build emailbox?  
-
-Progress in email clients has stalled. Everyone uses email differently, yet clients from Gmail to Outlook to Sparrow heavily restrict what developers can do, and don't offer many tools for development. It should be easier for a developer to build apps that affect every aspect of the email chain, and allow end users to determine how their client looks, what applications they want, and how efficiently they want to communicate. Rapportive, Boomerang, and Streak are example of awesome products/companies built on top of an email client, but I believe many more products and companies would exist if we had better tools to with which to work. 
+Emailbox is trying to make it easier for developers to build applications on top of email data. It handles all the hard parts of dealing with email (parsing, segmenting, searching, permissions) and provide a safe way for consumers to give out filtered email data. 
 
 
 ### Features and Architecture  
 
 #### Under development or planned
 
-1. Straightforward API that handles the complexities of storing, queuing, searching, notifications, events, and permissions
+1. Straightforward API that handles the complexities of storing, queuing, searching, notifications, events, and permissions 
 
-1. Developer friendly microformat-esque creation ("packages") for communications across any email client, but with significant benefits for emailbox users
+1. Developer friendly microformat-esque creation ("packages") for communications across any email client, but with significant benefits for emailbox users 
 
-1. Easy installation of apps from a package manager similar to npm or yum
+1. Easy installation of apps, as well as apps-within-apps
 
 #### Outgoing Packages
 
