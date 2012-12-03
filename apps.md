@@ -93,7 +93,10 @@ An array of events that your App can emit. Use a `*` for a wildcard
 #### permissions.events.listen  (not active yet)   
 Must include a **url**, an array of **follow** that includes the package name of the App to wait for a response before your App's url is run (`["pkg.native.email"]`), and **conditions** to match before calling the url. 
 
+<br />
+<br />
 
+Get started building Apps by registering as a developer (ask nick@getemailbox.com) and clicking "Create App" at https://getemailbox.com/developers 
 
 
 
