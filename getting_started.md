@@ -3,12 +3,15 @@
 > This guide assumes you have already signed up for emailbox (http://getemailbox.com/login), and as an emailbox developer (Developer signups are currently limited to those with a Private Beta code. Contact nick@getemailbox.com if you'd like one)
 
 ### Sign in to emailbox
-https://getemailbox.com/login
+https://getemailbox.com/login (get invite code from nick@getemailbox.com)
 
 ### Create your first App  
 https://getemailbox.com/developers  
+<br />
 ![developers](http://dl.dropbox.com/u/6673634/Screenshots/oyg0.png)
 You will choose a name for your application, and a default manifest will be created for you. 
+<br />  
+
 
 #### What is the manifest?  
 The manifest is how you tell emailbox which Events you care about, what permissions you need, and where you'll eventually set pricing. 
