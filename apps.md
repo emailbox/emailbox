@@ -5,7 +5,7 @@ Any kind of App could be developed on emailbox, but a few sample Apps could be:
 - Kid-friendly Email Client (whitelisted senders, really visual, no fluff)  
 - Analytics (examples: http://gigaom.com/2010/09/14/graph-your-inbox-analytics-for-gmail/ )  
 - News Email (all the mailing lists, marketing lists, ect that you are on)  
-- a Gallery (emails that have Thumbnail attachments)  
+- Gallery (emails that have Thumbnail attachments)  
 
 
 ### Manifest
