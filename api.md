@@ -4,7 +4,7 @@ This a guide to the API endpoints exposed by emailbox. [Learn more about emailbo
 ## Links  
 > Links are relative to your API url 
 
-Console: https://your_url/console.html  
+Console: http://emailbox.github.com/dev_tools  
 Samples: https://gist.github.com/6074f1d65a47b00dfd64  
 
 ## Authentication  
@@ -15,7 +15,7 @@ We accept JSON-encoded POST requests to all api endpoints. Each request should a
   
     {
       auth: {  
-	      app: 'e765c817-d066-4e5a-a337-2a0b88a9a706',  
+	      app: 'pkg.native.dev_tools',  
 	      user_token: 'e9b12882-4576-4f5d-8880-2965b1f7be22'  
       },
       data: { request examples below... }
@@ -32,8 +32,8 @@ Search across a Model. Depends on DB permissions for the app.
 Request:  
   
     {
-      "model" : "Test",
-      "fields" : ["field1" , "field2" , "field3.level2"],
+      "model" : "Email",
+      "fields" : ["original.headers" , "attributes"],
       "conditions" : {},
       "limit" : 25,
       "sort" : {"field1" : -1}
@@ -46,22 +46,20 @@ Response:
       "msg": "",
       "time" : .01277891888
       "data": [{
-            "Test" : {
+            "Email" : {
               "_id": a_mongo_db_id,
-              "field1" : 5,
-              "field2" : "some value",
-              "field3": {
-                "level2" : "some value"
+              "attributes" : {...},
+              "original": {
+                "headers" : {...}
               }
             }
           },
           {
-            "Test" : {
+            "Email" : {
               "_id": another_mongo_db_id,
-              "field1" : 6,
-              "field2" : "some value2",
-              "field3": {
-                "level2" : "some value2"
+              "attributes" : {...},
+              "original": {
+                "headers" : {...}
               }
             }
       }]
@@ -75,8 +73,8 @@ You can also include an **event** in here that triggers additional apps to run (
 Request:  
   
 	{
-	    "model": "Testing",
-	    "event": "Testing.test_add",
+	    "model": "Test",
+	    "event": "Test.test_add",
 	    "obj": {
 	        "sample_data" : {
             "data1" : "example",
@@ -103,7 +101,7 @@ Updates objects in the DB. Depends on permissions allowed for the app.
 
 Request:  
   
-  {
+	{
 	    "model": "Testing",
 	    "id": "modelid_here",
       "paths" : {
@@ -127,7 +125,7 @@ Trigger Apps to run on this plugin. These Apps will be called with the Object yo
 
 Request:  
   
-  {
+	{
       "event": "Testing.random_event",
       "obj" : {
       	"_id" : "some_id",
@@ -143,7 +141,7 @@ Response:
 	}
   
 
-### api/queue  
+### api/queue [not currently active] 
 At the appointed utctime, we'll send an HTTP POST request to your specified Plugin URL with the included obj.  
 
 Request:  
@@ -170,7 +168,7 @@ Response:
 The `data` field will include a `delay` object that confirms the number of seconds until the Job will be fired. 
 
 
-## Events  
+## Events [not currently active]  
 
 ### API Server
 
