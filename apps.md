@@ -1,8 +1,17 @@
 ## Apps  
- 
-An App is defined by a manifest.json. It describes your App and what permissions and data it will need
 
-#### manifest.json example  
+### What are Apps? 
+Any kind of App could be developed on emailbox, but a few sample Apps could be: 
+- Kid-friendly Email Client (whitelisted senders, really visual, no fluff)  
+- Analytics (examples: http://gigaom.com/2010/09/14/graph-your-inbox-analytics-for-gmail/ )  
+- News Email (all the mailing lists, marketing lists, ect that you are on)  
+
+
+### Manifest
+
+An App is defined by a manifest. It describes your App and what permissions and data it will need.
+
+#### Manifest example  
     
     {
         "name": "Example",
@@ -40,48 +49,48 @@ An App is defined by a manifest.json. It describes your App and what permissions
                 }
             }
         },
-        "dependencies": []
+        "dependencies": ["pkg.native.email"]
     }
 
 ### Let's look at each entry individually
 
 #### name  
 The name of your Application  
-**Requirements:** Must be at least 2 characters
+_Requirements:_ Must be at least 2 characters
 
 #### package  
 A unique identifier for your App. This is used by "dependencies" and "follow" (later)  
-**Requirements:** Must start with "pkg."  
-** Example:** pkg.developer_name.example1
+_Requirements:_ Must start with "pkg."  
+_Example:_ pkg.developer_name.example1
 
 #### description  
-**Requirements:** Must be at least 2 characters 
+_Requirements:_ Must be at least 2 characters 
 
 #### provision_url  
 The URL we will call when a new user authenticates your App. This occurs in case the person install your App from within our store.  
-**Requirements:** A valid, public URL  
+_Requirements:_ A valid, public URL  
 
 #### plain_permissions  
 In plain english (translation later) describe the permissions your App requires. This will be reviewed and must match your requirest permissions.  
-**Requirements:** Must be at least 2 characters 
+_Requirements:_ Must be at least 2 characters 
 
-#### permissions.read
+#### permissions.read (not active yet) 
 Define the Models, as well as paths and conditions, that your App will need to access for the user. 
 
-#### permissions.write
+#### permissions.write (not active yet) 
 Define the Models, as well as paths and conditions, that your App can modify for this user. 
 
-#### permissions.storage
+#### permissions.storage (not active yet)  
 Allowed to store larger data for this user
-**Requirements:** `true` or `false`
+_Requirements:_ `true` or `false`
 
-#### permissions.events  
+#### permissions.events (not active yet)  
 Your App can listen/emit events to communicate with other Apps.  
 
-#### permissions.events.emit  
+#### permissions.events.emit  (not active yet)   
 An array of events that your App can emit. Use a `*` for a wildcard
 
-#### permissions.events.listen  
+#### permissions.events.listen  (not active yet)   
 Must include a **url**, an array of **follow** that includes the package name of the App to wait for a response before your App's url is run (`["pkg.native.email"]`), and **conditions** to match before calling the url. 
 
 
