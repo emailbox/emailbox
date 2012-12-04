@@ -21,6 +21,13 @@ We accept JSON-encoded POST requests to all api endpoints. Each request should a
       data: { request examples below... }
     }
 
+
+## Models (Email and Thread)  
+
+[Email Model](https://github.com/emailbox/emailbox/blob/master/model_email.md)  
+[Thread Model](https://github.com/emailbox/emailbox/blob/master/model_thread.md)  
+
+
 ## API Endpoints
 
 ### api/echo  
