@@ -136,6 +136,7 @@ Request:
   
 	{
       "event": "Testing.random_event",
+      "delay" : 0, // Delay in seconds before firing event
       "obj" : {
       	"_id" : "some_id",
         "model" : "SomeModel"
@@ -148,33 +149,7 @@ Response:
 	    "code": 200,
 	    "msg": "Event Fired"
 	}
-  
 
-### api/queue [not currently active] 
-At the appointed utctime, we'll send an HTTP POST request to your specified Plugin URL with the included obj.  
-
-Request:  
-	
-	{
-	    "url": "https://plugin_url_here/plugins/test",
-	    "delay": 500,
-	    "obj": {
-	        "action" : "remind_me_in_no_replies",
-	        "message-id" : "<sdfk23fdsf23y5gdfsdf9823fj329f8@gmail.com>"
-	    }
-	}
-
-Response:  
-	
-	{
-	    "code": 200,
-	    "msg": "Saved to Queue",
-	    "data": {
-	        "delay": 120
-	    }
-	}
-
-The `data` field will include a `delay` object that confirms the number of seconds until the Job will be fired. 
 
 
 ## Events [not currently active]  
