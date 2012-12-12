@@ -111,9 +111,11 @@ Request:
 	{
 	    "model": "Testing",
 	    "id": "modelid_here",
-      "paths" : {
-      	"attributes.read.status": 1
-      }
+	    "paths" : {
+	    	"$set" : {
+	    		"attributes.read.status": 1
+	    	}
+	    }
 	}
 
 Response:  
