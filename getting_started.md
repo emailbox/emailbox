@@ -29,7 +29,7 @@ I recommend tossing the app in your ~/Sites directory (on a mac) and browsing to
 You can also fork the repo, then add (or push to) the gh-pages branch on GitHub and viewing it at http://username.github.com/app_name  
 
 ### Learn More  
-Read our API documentation, or see what other tools we offer ([DevTools](http://emailbox.github.com/dev_tools)). 
+Read our [API documentation](https://github.com/emailbox/emailbox/blob/master/api.md), or see what other tools we offer ([DevTools](http://emailbox.github.com/dev_tools)). 
 
 Suggestions appreciated at nick@getemailbox.com 
 
