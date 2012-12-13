@@ -135,24 +135,24 @@ Trigger Apps to run on this plugin. These Apps will be called with the Object yo
 Request:  
   
 	{
-      "event": "Testing.random_event",
-      "delay" : 0, // Delay in seconds before firing event
-      "obj" : {
-      	"_id" : "some_id",
-        "model" : "SomeModel"
-      }
+		"event": "Testing.random_event",
+		"delay" : 0, // Delay in seconds before firing event
+		"obj" : {
+			"_id" : "some_id",
+			"model" : "SomeModel"
+		}
 	}
 
 Response:  
 	
 	{
-	    "code": 200,
-	    "msg": "Event Fired"
+		"code": 200,
+		"msg": "Event Fired"
 	}
 
 
 
-## Events [not currently active]  
+## Events  
 
 ### API Server
 
@@ -170,18 +170,29 @@ API events are triggered by `api/write` or `api/event`. When an Event is trigger
 	    }
 	}
 
-### UI  
+### Client-side UI  
 
-In addition, a new object will be pushed through the socket.io connection:
+Listen for events through a Socket.io connection. After creating the connection, join the room (use your unique user_token for your app/user relationship)  
+
+	
+	var socket = io.connect('https://getemailbox.com/'); // SSL
+	socket.emit('room', App.Credentials.user_token); // immediately change room to my unique app user_token
+	socket.on('event', function (new_event) {
+		console.log(new_event);
+	}
+	
+In this case `new_event` looks the same way coming out as it did going in
 
 	{
-	    "event": 200,
-	    "data": {
-	        "Email": {
-                    ...
-                }
+	    "event": "AppFilemessCollection.update2",
+	    "delay": 0,
+	    "obj": {
+	        "test": "this"
 	    }
 	}
+
+
+An example of listening for events can be found in the [File Mess](https://github.com/emailbox/filemess) example. 
 
 
 
