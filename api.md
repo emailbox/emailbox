@@ -21,6 +21,13 @@ We accept JSON-encoded POST requests to all api endpoints. Each request should a
       data: { request examples below... }
     }
 
+### Working with MongoDB  
+Emailbox uses MongoDB on the backend, so all queries you make will use Mongo syntax. The biggest difference is that emailbox uses `model` while MongoDB uses `collection`.  
+
+**Mongo Query links**:  
+http://www.mongodb.org/display/DOCS/Querying  
+http://docs.mongodb.org/manual/reference/operators/  
+
 
 ## Models (Email and Thread)  
 
